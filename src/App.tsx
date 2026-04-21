@@ -10,6 +10,7 @@ import {
   Clock,
   Flame,
 } from "lucide-react";
+import tentangKami from "./assets/tentang-kami.png";
 
 const WA_NUMBER = "6285328506562";
 const WA_LINK = `https://wa.me/${WA_NUMBER}`;
@@ -260,7 +261,7 @@ export default function App() {
             <div className="relative">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
                 <img
-                  src="/roti-bakar/tentang-kami.png"
+                  src={tentangKami}
                   alt="Roti Bakar Surya Panggang"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 />
