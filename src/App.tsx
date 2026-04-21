@@ -260,7 +260,7 @@ export default function App() {
             <div className="relative">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
                 <img
-                  src="/tentang-kami.jpg"
+                  src="/tentang-kami.png"
                   alt="Roti Bakar Surya Panggang"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 />
