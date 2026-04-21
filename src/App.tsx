@@ -1,53 +1,65 @@
-import { useState, useEffect } from 'react';
-import { Menu, X, MapPin, MessageCircle, ChevronDown, Star, Phone, Clock, Flame } from 'lucide-react';
+import { useState, useEffect } from "react";
+import {
+  Menu,
+  X,
+  MapPin,
+  MessageCircle,
+  ChevronDown,
+  Star,
+  Phone,
+  Clock,
+  Flame,
+} from "lucide-react";
 
-const WA_NUMBER = '6285328506562';
+const WA_NUMBER = "6285328506562";
 const WA_LINK = `https://wa.me/${WA_NUMBER}`;
-const WA_ORDER_MSG = encodeURIComponent('Halo Surya Panggang! Saya ingin memesan roti bakar. Apakah stok tersedia sekarang?');
+const WA_ORDER_MSG = encodeURIComponent(
+  "Halo Surya Panggang! Saya ingin memesan roti bakar. Apakah stok tersedia sekarang?",
+);
 
 const menuItems = [
   {
-    name: 'Coklat',
-    desc: 'Olesan coklat premium yang manis dan meleleh sempurna di atas roti yang renyah.',
-    color: 'from-amber-800 to-amber-700',
-    badge: 'Terlaris',
-    icon: '🍫',
+    name: "Coklat",
+    desc: "Olesan coklat premium yang manis dan meleleh sempurna di atas roti yang renyah.",
+    color: "from-amber-800 to-amber-700",
+    badge: "Terlaris",
+    icon: "🍫",
   },
   {
-    name: 'Keju',
-    desc: 'Taburan keju gurih yang meleleh menggiurkan, perpaduan sempurna dengan roti panggang.',
-    color: 'from-yellow-600 to-amber-500',
-    badge: 'Favorit',
-    icon: '🧀',
+    name: "Keju",
+    desc: "Taburan keju gurih yang meleleh menggiurkan, perpaduan sempurna dengan roti panggang.",
+    color: "from-yellow-600 to-amber-500",
+    badge: "Favorit",
+    icon: "🧀",
   },
   {
-    name: 'Kacang',
-    desc: 'Selai kacang creamy yang kaya protein, lezat dan mengenyangkan untuk semua usia.',
-    color: 'from-amber-600 to-yellow-700',
+    name: "Kacang",
+    desc: "Selai kacang creamy yang kaya protein, lezat dan mengenyangkan untuk semua usia.",
+    color: "from-amber-600 to-yellow-700",
     badge: null,
-    icon: '🥜',
+    icon: "🥜",
   },
   {
-    name: 'Nanas',
-    desc: 'Selai nanas segar dengan rasa manis-asam alami yang menyegarkan dan unik.',
-    color: 'from-lime-600 to-green-600',
+    name: "Nanas",
+    desc: "Selai nanas segar dengan rasa manis-asam alami yang menyegarkan dan unik.",
+    color: "from-lime-600 to-green-600",
     badge: null,
-    icon: '🍍',
+    icon: "🍍",
   },
   {
-    name: 'Strawberry',
-    desc: 'Selai strawberry merah segar dengan aroma buah yang harum dan rasa manis alami.',
-    color: 'from-rose-600 to-red-500',
+    name: "Strawberry",
+    desc: "Selai strawberry merah segar dengan aroma buah yang harum dan rasa manis alami.",
+    color: "from-rose-600 to-red-500",
     badge: null,
-    icon: '🍓',
+    icon: "🍓",
   },
 ];
 
 const navLinks = [
-  { label: 'Beranda', href: '#hero' },
-  { label: 'Tentang Kami', href: '#about' },
-  { label: 'Menu', href: '#menu' },
-  { label: 'Lokasi', href: '#location' },
+  { label: "Beranda", href: "#hero" },
+  { label: "Tentang Kami", href: "#about" },
+  { label: "Menu", href: "#menu" },
+  { label: "Lokasi", href: "#location" },
 ];
 
 export default function App() {
@@ -56,30 +68,32 @@ export default function App() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const scrollTo = (href: string) => {
     setMobileOpen(false);
     const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <div style={{ fontFamily: "'Poppins', sans-serif" }} className="text-stone-800 overflow-x-hidden">
-
+    <div
+      style={{ fontFamily: "'Poppins', sans-serif" }}
+      className="text-stone-800 overflow-x-hidden"
+    >
       {/* ───────── NAVBAR ───────── */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? 'bg-white/95 backdrop-blur-md shadow-md' : 'bg-transparent'
+          scrolled ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-transparent"
         }`}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
             <button
-              onClick={() => scrollTo('#hero')}
+              onClick={() => scrollTo("#hero")}
               className="flex items-center gap-2 group"
             >
               <div className="w-9 h-9 bg-amber-600 rounded-full flex items-center justify-center shadow">
@@ -88,7 +102,7 @@ export default function App() {
               <div className="text-left">
                 <span
                   className={`block font-bold leading-tight text-sm lg:text-base transition-colors ${
-                    scrolled ? 'text-stone-800' : 'text-white'
+                    scrolled ? "text-stone-800" : "text-white"
                   }`}
                   style={{ fontFamily: "'Playfair Display', serif" }}
                 >
@@ -96,7 +110,7 @@ export default function App() {
                 </span>
                 <span
                   className={`block text-xs leading-tight transition-colors ${
-                    scrolled ? 'text-amber-600' : 'text-amber-200'
+                    scrolled ? "text-amber-600" : "text-amber-200"
                   }`}
                 >
                   Roti Bakar
@@ -111,7 +125,7 @@ export default function App() {
                   key={link.href}
                   onClick={() => scrollTo(link.href)}
                   className={`text-sm font-medium transition-colors hover:text-amber-500 ${
-                    scrolled ? 'text-stone-700' : 'text-white'
+                    scrolled ? "text-stone-700" : "text-white"
                   }`}
                 >
                   {link.label}
@@ -132,10 +146,16 @@ export default function App() {
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               className={`md:hidden p-2 rounded-lg transition-colors ${
-                scrolled ? 'text-stone-700 hover:bg-stone-100' : 'text-white hover:bg-white/10'
+                scrolled
+                  ? "text-stone-700 hover:bg-stone-100"
+                  : "text-white hover:bg-white/10"
               }`}
             >
-              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </div>
@@ -143,7 +163,7 @@ export default function App() {
         {/* Mobile menu */}
         <div
           className={`md:hidden bg-white border-t border-stone-100 overflow-hidden transition-all duration-300 ${
-            mobileOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+            mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
           }`}
         >
           <div className="px-4 py-4 space-y-1">
@@ -193,13 +213,13 @@ export default function App() {
             className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            Roti Bakar{' '}
+            Roti Bakar{" "}
             <span className="text-amber-400 italic">Surya Panggang</span>
           </h1>
 
           <p className="text-stone-200 text-base sm:text-lg leading-relaxed mb-10 max-w-xl mx-auto">
-            Nikmati sensasi roti bakar hangat dengan berbagai pilihan rasa yang manis dan lezat.
-            Bisa pilih sendiri atau kombinasikan sesuai selera!
+            Nikmati sensasi roti bakar hangat dengan berbagai pilihan rasa yang
+            manis dan lezat. Bisa pilih sendiri atau kombinasikan sesuai selera!
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -213,7 +233,7 @@ export default function App() {
               Pesan via WhatsApp
             </a>
             <button
-              onClick={() => scrollTo('#menu')}
+              onClick={() => scrollTo("#menu")}
               className="flex items-center gap-2 border border-white/40 hover:bg-white/10 text-white font-semibold px-8 py-4 rounded-full text-base transition-all w-full sm:w-auto justify-center backdrop-blur-sm"
             >
               Lihat Menu
@@ -224,7 +244,7 @@ export default function App() {
 
         {/* Scroll indicator */}
         <button
-          onClick={() => scrollTo('#about')}
+          onClick={() => scrollTo("#about")}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 hover:text-white transition-colors animate-bounce"
           aria-label="Scroll ke bawah"
         >
@@ -240,7 +260,7 @@ export default function App() {
             <div className="relative">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
                 <img
-                  src="https://images.pexels.com/photos/1775043/pexels-photo-1775043.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  src="/tentang-kami.jpg"
                   alt="Roti Bakar Surya Panggang"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 />
@@ -250,8 +270,12 @@ export default function App() {
                 <div className="flex items-center gap-2">
                   <Flame className="w-5 h-5" />
                   <div>
-                    <p className="font-bold text-base leading-tight">Selalu Segar</p>
-                    <p className="text-amber-200 text-xs">Dipanggang setiap hari</p>
+                    <p className="font-bold text-base leading-tight">
+                      Selalu Segar
+                    </p>
+                    <p className="text-amber-200 text-xs">
+                      Dipanggang setiap hari
+                    </p>
                   </div>
                 </div>
               </div>
@@ -266,32 +290,59 @@ export default function App() {
                 className="text-3xl sm:text-4xl font-bold text-stone-800 leading-tight mb-6"
                 style={{ fontFamily: "'Playfair Display', serif" }}
               >
-                Cita Rasa Hangat di{' '}
+                Cita Rasa Hangat di{" "}
                 <span className="text-amber-600 italic">Setiap Gigitan</span>
               </h2>
               <p className="text-stone-600 leading-relaxed mb-5 text-base">
-                <strong>Roti Bakar Surya Panggang</strong> hadir untuk menemani hari-harimu dengan
-                sajian roti bakar yang hangat, renyah, dan penuh cita rasa. Kami menyediakan
-                berbagai pilihan rasa yang bisa kamu sesuaikan dengan selera.
+                <strong>Roti Bakar Surya Panggang</strong> hadir untuk menemani
+                hari-harimu dengan sajian roti bakar yang hangat, renyah, dan
+                penuh cita rasa. Kami menyediakan berbagai pilihan rasa yang
+                bisa kamu sesuaikan dengan selera.
               </p>
               <p className="text-stone-600 leading-relaxed mb-8 text-base">
-                Dari coklat yang manis, keju yang gurih, hingga nanas dan strawberry yang segar —
-                semuanya tersedia untukmu. Bahkan kamu bisa <strong>kombinasikan beberapa rasa</strong>{' '}
-                sekaligus untuk pengalaman yang lebih unik dan memuaskan!
+                Dari coklat yang manis, keju yang gurih, hingga nanas dan
+                strawberry yang segar — semuanya tersedia untukmu. Bahkan kamu
+                bisa <strong>kombinasikan beberapa rasa</strong> sekaligus untuk
+                pengalaman yang lebih unik dan memuaskan!
               </p>
 
               <div className="grid grid-cols-2 gap-4 mb-8">
                 {[
-                  { icon: <Flame className="w-5 h-5" />, label: 'Dipanggang Segar', sub: 'Langsung saat order' },
-                  { icon: <Star className="w-5 h-5" />, label: '5 Varian Rasa', sub: 'Plus kombinasi bebas' },
-                  { icon: <Clock className="w-5 h-5" />, label: 'Cepat & Mudah', sub: 'Order via WhatsApp' },
-                  { icon: <Phone className="w-5 h-5" />, label: 'Ramah & Bersahabat', sub: 'Siap melayani kamu' },
+                  {
+                    icon: <Flame className="w-5 h-5" />,
+                    label: "Dipanggang Segar",
+                    sub: "Langsung saat order",
+                  },
+                  {
+                    icon: <Star className="w-5 h-5" />,
+                    label: "5 Varian Rasa",
+                    sub: "Plus kombinasi bebas",
+                  },
+                  {
+                    icon: <Clock className="w-5 h-5" />,
+                    label: "Cepat & Mudah",
+                    sub: "Order via WhatsApp",
+                  },
+                  {
+                    icon: <Phone className="w-5 h-5" />,
+                    label: "Ramah & Bersahabat",
+                    sub: "Siap melayani kamu",
+                  },
                 ].map((item) => (
-                  <div key={item.label} className="flex items-start gap-3 bg-white rounded-xl p-4 shadow-sm">
-                    <div className="text-amber-600 mt-0.5 flex-shrink-0">{item.icon}</div>
+                  <div
+                    key={item.label}
+                    className="flex items-start gap-3 bg-white rounded-xl p-4 shadow-sm"
+                  >
+                    <div className="text-amber-600 mt-0.5 flex-shrink-0">
+                      {item.icon}
+                    </div>
                     <div>
-                      <p className="font-semibold text-stone-800 text-sm">{item.label}</p>
-                      <p className="text-stone-500 text-xs mt-0.5">{item.sub}</p>
+                      <p className="font-semibold text-stone-800 text-sm">
+                        {item.label}
+                      </p>
+                      <p className="text-stone-500 text-xs mt-0.5">
+                        {item.sub}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -337,7 +388,9 @@ export default function App() {
                 className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-stone-100"
               >
                 {/* Card header */}
-                <div className={`bg-gradient-to-br ${item.color} p-8 relative flex items-center justify-center`}>
+                <div
+                  className={`bg-gradient-to-br ${item.color} p-8 relative flex items-center justify-center`}
+                >
                   <span className="text-6xl drop-shadow-lg group-hover:scale-110 transition-transform duration-300">
                     {item.icon}
                   </span>
@@ -355,7 +408,9 @@ export default function App() {
                   >
                     Roti Bakar {item.name}
                   </h3>
-                  <p className="text-stone-500 text-sm leading-relaxed mb-5">{item.desc}</p>
+                  <p className="text-stone-500 text-sm leading-relaxed mb-5">
+                    {item.desc}
+                  </p>
                   <a
                     href={`${WA_LINK}?text=${encodeURIComponent(`Halo Surya Panggang! Saya mau pesan Roti Bakar ${item.name}. Apakah tersedia sekarang?`)}`}
                     target="_blank"
@@ -364,7 +419,9 @@ export default function App() {
                   >
                     <MessageCircle className="w-4 h-4" />
                     Pesan Ini
-                    <span className="group-hover/btn:translate-x-1 transition-transform">→</span>
+                    <span className="group-hover/btn:translate-x-1 transition-transform">
+                      →
+                    </span>
                   </a>
                 </div>
               </div>
@@ -382,8 +439,9 @@ export default function App() {
                     Kombinasi Bebas
                   </h3>
                   <p className="text-stone-300 text-sm leading-relaxed mb-4">
-                    Mau campur Coklat + Keju? Atau Strawberry + Kacang? Bebas banget! Kamu bisa
-                    request kombinasi apapun sesuai selera. Harga menyesuaikan pilihan kombinasimu.
+                    Mau campur Coklat + Keju? Atau Strawberry + Kacang? Bebas
+                    banget! Kamu bisa request kombinasi apapun sesuai selera.
+                    Harga menyesuaikan pilihan kombinasimu.
                   </p>
                   <div className="flex flex-wrap gap-2 mb-6">
                     {menuItems.map((m) => (
@@ -397,7 +455,7 @@ export default function App() {
                   </div>
                 </div>
                 <a
-                  href={`${WA_LINK}?text=${encodeURIComponent('Halo Surya Panggang! Saya mau tanya soal kombinasi rasa roti bakar. Boleh request campuran ya?')}`}
+                  href={`${WA_LINK}?text=${encodeURIComponent("Halo Surya Panggang! Saya mau tanya soal kombinasi rasa roti bakar. Boleh request campuran ya?")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-stone-900 font-bold px-5 py-3 rounded-full transition-all hover:shadow-lg text-sm w-fit"
@@ -413,11 +471,14 @@ export default function App() {
           <div className="mt-8 bg-amber-50 border border-amber-200 rounded-2xl p-6 flex items-start gap-4">
             <span className="text-2xl flex-shrink-0">💡</span>
             <div>
-              <p className="font-semibold text-amber-800 mb-1">Bisa Request Kombinasi Rasa!</p>
+              <p className="font-semibold text-amber-800 mb-1">
+                Bisa Request Kombinasi Rasa!
+              </p>
               <p className="text-amber-700 text-sm leading-relaxed">
-                Kamu bebas memilih dan mengombinasikan rasa sesuai keinginan. Cukup sebutkan
-                kombinasimu saat pesan via WhatsApp, dan harga akan menyesuaikan kombinasi
-                yang kamu pilih. Tidak ada batasan kreativitasmu!
+                Kamu bebas memilih dan mengombinasikan rasa sesuai keinginan.
+                Cukup sebutkan kombinasimu saat pesan via WhatsApp, dan harga
+                akan menyesuaikan kombinasi yang kamu pilih. Tidak ada batasan
+                kreativitasmu!
               </p>
             </div>
           </div>
@@ -438,8 +499,8 @@ export default function App() {
             Lapar? Yuk, Pesan Sekarang!
           </h2>
           <p className="text-amber-100 text-base leading-relaxed mb-8 max-w-xl mx-auto">
-            Tinggal chat WhatsApp, roti bakar hangat siap kamu nikmati. Gampang, cepat, dan
-            pastinya lezat!
+            Tinggal chat WhatsApp, roti bakar hangat siap kamu nikmati. Gampang,
+            cepat, dan pastinya lezat!
           </p>
           <a
             href={`${WA_LINK}?text=${WA_ORDER_MSG}`}
@@ -470,7 +531,8 @@ export default function App() {
               Lokasi Kami
             </h2>
             <p className="text-stone-500 max-w-md mx-auto text-base">
-              Mampir langsung atau hubungi kami dulu via WhatsApp untuk memastikan ketersediaan.
+              Mampir langsung atau hubungi kami dulu via WhatsApp untuk
+              memastikan ketersediaan.
             </p>
           </div>
 
@@ -498,7 +560,9 @@ export default function App() {
                     <MessageCircle className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="font-semibold text-stone-800 mb-1">WhatsApp</p>
+                    <p className="font-semibold text-stone-800 mb-1">
+                      WhatsApp
+                    </p>
                     <a
                       href={WA_LINK}
                       target="_blank"
@@ -507,7 +571,9 @@ export default function App() {
                     >
                       0853-2850-6562
                     </a>
-                    <p className="text-stone-500 text-xs mt-1">Klik untuk chat langsung</p>
+                    <p className="text-stone-500 text-xs mt-1">
+                      Klik untuk chat langsung
+                    </p>
                   </div>
                 </div>
               </div>
@@ -518,10 +584,16 @@ export default function App() {
                     <Clock className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="font-semibold text-stone-800 mb-1">Jam Operasional</p>
+                    <p className="font-semibold text-stone-800 mb-1">
+                      Jam Operasional
+                    </p>
                     <p className="text-stone-600 text-sm">Setiap Hari</p>
-                    <p className="text-amber-600 font-semibold text-sm">Sore – Malam</p>
-                    <p className="text-stone-400 text-xs mt-1">*Hubungi untuk jadwal pasti</p>
+                    <p className="text-amber-600 font-semibold text-sm">
+                      Sore – Malam
+                    </p>
+                    <p className="text-stone-400 text-xs mt-1">
+                      *Hubungi untuk jadwal pasti
+                    </p>
                   </div>
                 </div>
               </div>
@@ -545,7 +617,7 @@ export default function App() {
                   src="https://maps.google.com/maps?q=Jl.+MH+Thamrin+Ki+Mangun+Sarkoro+Panggang+Jepara+Jawa+Tengah&output=embed&z=15"
                   width="100%"
                   height="100%"
-                  style={{ border: 0, minHeight: '300px' }}
+                  style={{ border: 0, minHeight: "300px" }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -577,8 +649,8 @@ export default function App() {
                 </div>
               </div>
               <p className="text-sm text-stone-400 leading-relaxed">
-                Roti bakar hangat dengan berbagai pilihan rasa yang manis dan lezat.
-                Bisa dikombinasikan sesuai selera!
+                Roti bakar hangat dengan berbagai pilihan rasa yang manis dan
+                lezat. Bisa dikombinasikan sesuai selera!
               </p>
             </div>
 
@@ -594,7 +666,9 @@ export default function App() {
                   </li>
                 ))}
                 <li>
-                  <span className="text-sm text-amber-400">✨ Kombinasi Bebas</span>
+                  <span className="text-sm text-amber-400">
+                    ✨ Kombinasi Bebas
+                  </span>
                 </li>
               </ul>
             </div>
@@ -606,7 +680,8 @@ export default function App() {
                 <div className="flex items-start gap-3">
                   <MapPin className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
                   <p className="text-sm text-stone-400 leading-relaxed">
-                    Perempatan Jl. MH Thamrin & Jl. Ki Mangun Sarkoro, Panggang, Jepara
+                    Perempatan Jl. MH Thamrin & Jl. Ki Mangun Sarkoro, Panggang,
+                    Jepara
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
